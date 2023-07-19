@@ -3,19 +3,18 @@ class WordFinder:
     """
     def __init__(self, file_path):
         self.file_path = file_path
-        self.list_of_words = []
-        self.word_count = 0
+        self.list_of_words = self.read_file_and_store_words()
+        print(f"{len(self.list_of_words)} words read")
 
     def read_file_and_store_words(self):
         f = open(f'{self.file_path}', 'r')
 
+        word_list = []
+
         for line in f:
-            self.list_of_words.append(line.strip())
-            self.word_count += 1
+            word_list.append(line.strip())
 
-    def __repr__(self):
-        return f"{self.word_count} words read"
-
+        return word_list
 
 """
 instantiated with path to file containing one word per line
